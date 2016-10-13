@@ -1,5 +1,5 @@
 # tbjers/dot-node
-Just a bunch of dotfiles.
+My Node.js dotfiles, [ellipsis][ellipsis] compatible.
 
 ## Install
 Clone and symlink or install with [ellipsis][ellipsis]:
