@@ -4,8 +4,7 @@
 
 pkg.install() {
   case $(os.platform) in
-    osx)
-    linux)
+    osx | linux)
       utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh'
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
@@ -14,4 +13,5 @@ pkg.install() {
       nvm alias default stable
       nvm alias system stable
       ;;
+   esac
 }
