@@ -2,23 +2,16 @@
 #
 # tbjers/dot-node ellipsis package
 
-# The following hooks can be defined to customize behavior of your package:
-# pkg.install() {
-#     fs.link_files $PKG_PATH
-# }
-
-# pkg.push() {
-#     git.push
-# }
-
-# pkg.pull() {
-#     git.pull
-# }
-
-# pkg.installed() {
-#     git.status
-# }
-#
-# pkg.status() {
-#     git.diffstat
-# }
+pkg.install() {
+  case $(os.platform) in
+    osx)
+    linux)
+      utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh'
+      export NVM_DIR="$HOME/.nvm"
+      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+      nvm install lts/argon
+      nvm alias stable lts/argon
+      nvm alias default stable
+      nvm alias system stable
+      ;;
+}
