@@ -5,7 +5,7 @@
 pkg.install() {
   case $(os.platform) in
     osx | linux)
-      utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.32.0/install.sh'
+      utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh'
       export NVM_DIR="$HOME/.nvm"
       [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
       nvm install lts/argon
