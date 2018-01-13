@@ -4,14 +4,17 @@
 
 pkg.install() {
   case $(os.platform) in
-    osx | linux)
-      utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh'
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-      nvm install lts/argon
-      nvm alias stable lts/argon
-      nvm alias default stable
-      nvm alias system stable
+    osx)
+      brew install yarn --without-node
+      brew install watchman
       ;;
-   esac
+  esac
+  utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh'
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
+  nvm install lts/argon
+  nvm install lts/carbon
+  nvm alias stable lts/carbon
+  nvm alias default stable
+  nvm alias system stable
 }
