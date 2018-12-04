@@ -13,9 +13,10 @@ pkg.install() {
   utils.run_installer 'https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh'
   export NVM_DIR="$HOME/.nvm"
   [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
-  nvm install lts/argon
-  nvm install lts/carbon
-  nvm alias stable lts/carbon
+  nvm install v8.10
+  nvm install lts/dubnium
+  nvm alias stable lts/dubnium
   nvm alias default stable
   nvm alias system stable
+  npm install -g npm-quick-run
 }
